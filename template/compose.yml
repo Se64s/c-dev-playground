@@ -9,25 +9,5 @@ services:
       - type: bind
         source: ${PWD}
         target: /home/dev/workspace
-
-  app-build:
-    extends:
-      service: base
-    command: sh -c "mkdir -p ./build && cd ./build && rm -f -R ./* && cmake .. && cmake --build ."
-
-  app-debug:
-    extends:
-      service: base
-    working_dir: /home/dev/workspace/build
-    tty: true
     stdin_open: true 
-    privileged: true
-    cap_add:
-      - SYS_PTRACE
-    command: gdb ./MyApp.out
-
-  app-run:
-    extends:
-      service: base
-    working_dir: /home/dev/workspace/build
-    command: ./MyApp.out
+    tty: true
