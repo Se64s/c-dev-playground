@@ -47,7 +47,7 @@ GDB_APP=gdb
 DEBUG_ARGS=
 DEBUG_CMD=$(INIT_BUILD_CMD) && $(GDB_APP) ./$(APP_NAME).out $(DEBUG_ARGS)
 .PHONY: debug
-debug:
+debug: build
 	@echo "Debug application with following args: $(DEBUG_ARGS)\n"
 	docker compose exec base sh -c "$(DEBUG_CMD)"
 

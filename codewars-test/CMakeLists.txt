@@ -6,7 +6,7 @@ project(MyTest VERSION 1.0)
 set (APP_EXE ${CMAKE_PROJECT_NAME}.out)
 
 # Define gcc compiler flags
-set (USER_COMPILER_FLAGS -Wall -Wextra -Wshadow -Wformat=2 -Wunused -O0 -g)
+set (USER_COMPILER_FLAGS -Wall -Wextra -Wshadow -Wformat=2 -Wunused)
 
 # Compiler definition
 set (CMAKE_CXX_STANDARD 11)
@@ -26,5 +26,3 @@ target_include_directories(${APP_EXE} PUBLIC
 )
 
 target_link_libraries(${APP_EXE} -lcriterion)
-
-
