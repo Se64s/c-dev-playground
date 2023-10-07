@@ -1,0 +1,12 @@
+services:
+
+  base:
+    env_file: .env
+    working_dir: /workspace
+    image: tommoulard/criterion
+    volumes:
+      - type: bind
+        source: ${PWD}
+        target: /workspace
+    stdin_open: true 
+    tty: true
