@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  base:
+    working_dir: ${PWD}
+    build: ./container
+    user: user
+    volumes:
+      - ${PWD}:${PWD}
+    stdin_open: true 
+    tty: true
+    stop_grace_period: 1s
+
+# EOF
