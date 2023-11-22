@@ -21,6 +21,15 @@ down:
 	@echo "--------------------------------------"
 	$(COMPOSE) down
 
+# Attach to image
+ATTACH_CMD=/bin/bash
+.PHONY: attach
+attach: up
+	@echo "--------------------------------------"
+	@echo "$(MAKE_MSG) Launch build application process"
+	@echo "--------------------------------------"
+	$(COMPOSE) exec base sh -c "$(ATTACH_CMD)"
+
 # Launch build actions
 INIT_BUILD_CMD=mkdir -p ./build && cd ./build
 CLEAN_BUILD_CMD=$(INIT_BUILD_CMD) && rm -f -R ./*
